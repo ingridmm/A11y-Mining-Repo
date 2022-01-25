@@ -4,11 +4,11 @@ import glob
 import shlex
 
 
-def runESlint():
+def runLinter():
     #mudar caminho dir
-    path = "/home/ingridmoreira/Documentos/MSR2021/files"
+    path = "/home/ingridmoreira/Documentos/TCC/git-tcc/projeto_tcc/files"
 
-    os.chdir("/home/ingridmoreira/Documentos/MSR2021/files")
+    os.chdir(path)
     fileList = glob.glob('*.html')
     fileList = listSplit(fileList, 20)
     reportNumber = 0
@@ -45,4 +45,4 @@ def listSplit(listToSplit: list, countSplit: int):
 
 
 if __name__ == "__main__":
-    runESlint()
+    runLinter()
