@@ -2,29 +2,32 @@ import subprocess
 import os
 import glob
 import shlex
-
+import os
 
 def runLinter():
-    #mudar caminho dir
-    path = "/home/ingridmoreira/Documentos/TCC/git-tcc/projeto_tcc/files"
+    
+    path = '/home/ingridmoreira/Documentos/edit_teste'      # Mudar caminho do diretório conforme necessidade!
 
     os.chdir(path)
     fileList = glob.glob('*.html')
     fileList = listSplit(fileList, 20)
     reportNumber = 0
     ArgsList = []
-    # print(fileList)
-    # arg_list = [['./node_modules/eslint/bin/eslint.js'+fileName+'-f json -o report.json'] for fileName  in fileList]
     
-    #leitura das files com o linter 'pa11y'
-    #necessário instalar pa11y
-    for x in fileList:
-        args = shlex.split('pa11y --reporter csv {}{} >  report{}.csv'.format(path, "".join(x), reportNumber))
-        reportNumber += 1
-        ArgsList.append(" ".join(args))
-    print("args", " ".join(args))
-    processList = [subprocess.Popen(argsToRun, shell=True)
-                   for argsToRun in ArgsList]
+    for p, _, files in os.walk(os.path.abspath(path)):
+        for file in files:
+            print(os.path.join(p, file))
+
+
+    # Listar arquivos para multiplos diretórios
+    # Path recursivo + arquivo
+    for p, _, files in os.walk(os.path.abspath(path)):
+        for file in files:
+            args = shlex.split('pa11y --reporter csv {} >  report{}.csv'.format(os.path.join(p, file), reportNumber))   # Incrementa no '{}' cada caminho do arquivo no diretório
+            reportNumber += 1
+            ArgsList.append(" ".join(args))
+            print("args", " ".join(args))
+    processList = [subprocess.Popen(argsToRun, shell=True) for argsToRun in ArgsList]
 
     print("arglist", ArgsList)
     print("process ", processList)
@@ -36,7 +39,7 @@ def runLinter():
 
 def listSplit(listToSplit: list, countSplit: int):
     length = len(listToSplit)
-    print(length)
+    print('tamanho: ',length)
     splitlist = []
     for x in range(countSplit):
         splitlist.append(
