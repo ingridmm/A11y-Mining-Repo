@@ -1,7 +1,10 @@
 # Projeto
-1 . 'ExtractCodeFromCSV.py'
+1. Inicialmente faça a extração dos snippets do .csv em 'ExtractCodeFromCSV.py'
 
-2. 'eslintRunnerScript.py' 
-  ideia inicial em utilizar linter para hmtl && CSS, e linter para JS;
-  html && CSS: Pa11y, JS: eslint-plugin-jsx-a11y
+2. O script permitirá que o linter execute recursivamente em cada snippet -> 'eslintRunnerScript.py' 
+
+3. Feita a leitura, o script permitirá que cada csv gerado da análise seja condensado em apenas um que, posteriormente será avaliado. -> 'multiple_csv_into_one.py'
  
+4. No jupyter notebook permitirá que cada coluna do csv seja lida, e avaliar os resultados dos principais erros encontrado -> 'main.ipynb'
+
+5. Neste mesmo notebook será possível plotar e gerar gráficos a partir do csv gerado.
