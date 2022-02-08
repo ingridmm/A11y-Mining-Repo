@@ -6,7 +6,7 @@ import os
 
 def runLinter():
     
-    path = '/home/ingridmoreira/Documentos/socorro'      # Mudar caminho do diretório conforme necessidade!
+    path = '/home/ingridmoreira/Documentos/Teste_Final'      # Mudar caminho do diretório conforme necessidade!
 
     os.chdir(path)
     fileList = glob.glob('*.html')
