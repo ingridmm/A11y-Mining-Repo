@@ -1,3 +1,6 @@
+Cada script disposto contribuirá para leitura e varredura de acessibilidade de snippets que contenham tags HTML e estilos em CSS.
+
+
 # Projeto
 1. Inicialmente faça a extração dos snippets do .csv em 'ExtractCodeFromCSV.py'. (Arquivos em html)
 
